@@ -7,9 +7,13 @@
 // CSS:
 // Types, interfaces and enumns:
 import type { FC } from 'react';
-interface MapProps {}
+import type { Place } from '../api/Place.type';
 
-const Map: FC<MapProps> = () => {
+interface MapProps {
+  place: Place | null;
+}
+
+const Map: FC<MapProps> = ({ place }) => {
   // JSX:
   return <div>Map</div>;
 };
