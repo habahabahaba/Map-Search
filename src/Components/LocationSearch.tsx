@@ -14,7 +14,7 @@ interface LocationSearchProps {
   handlePlaceClick: (place: Place) => void;
 }
 
-const LocationSearch: FC<LocationSearchProps> = ({ handleSearch }) => {
+const LocationSearch: FC<LocationSearchProps> = ({ handlePlaceClick }) => {
   // State:
   const [places, setPlaces] = useState<Place[]>([]);
 

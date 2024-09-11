@@ -13,13 +13,15 @@ function App() {
   const [place, setPlace] = useState<Place | null>(null);
 
   // Handlers:
-  function handlePlaceClick(place: Place) {}
+  function handlePlaceClick(place: Place): void {
+    setPlace(() => place);
+  }
 
   // JSX:
   return (
     <div className='h-screen w-screen grid grid-cols-12'>
       <div className='col-span-3 p-2'>
-        <LocationSearch handleSearch={handlePlaceClick} />
+        <LocationSearch handlePlaceClick={handlePlaceClick} />
       </div>
       <div className='col-span-9'>
         <Map place={place} />
