@@ -23,7 +23,7 @@ const searchOptions = (searchOptions: SearchOptionsObj) =>
 export default async function searchLocations(
   term: string,
   SearchOptionsObj: SearchOptionsObj = {}
-) {
+): Promise<Place[]> {
   const res = await fetch(
     `${BASE_URL}q=${term}&${searchOptions(SearchOptionsObj)}`
   );
