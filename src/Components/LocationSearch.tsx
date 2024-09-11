@@ -15,7 +15,7 @@ interface LocationSearchProps {
 
 const LocationSearch: FC<LocationSearchProps> = ({ handleSearch }) => {
   // JSX:
-  return <div>Location Search</div>;
+  return <div>Location Search!</div>;
 };
 
 export default LocationSearch;
