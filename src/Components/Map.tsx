@@ -19,9 +19,32 @@ interface MapProps {
   place: Place | null;
 }
 
+const tilesUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
 const Map: FC<MapProps> = ({ place }) => {
+  // Map Ref:
+  const mapRef = useRef<LeafletMap | null>(null);
+
+  // Automatic map positioning:
+  useEffect(() => {
+    if (mapRef.current && place) {
+      mapRef.current.flyTo([place.latitude, place.longitude]);
+    }
+  }, [place]);
+
   // JSX:
-  return <div>Map</div>;
+  return (
+    <MapContainer
+      ref={mapRef}
+      center={[40.7, -74]}
+      zoom={12}
+      scrollWheelZoom={true}
+      className='h-full'
+    >
+      <TileLayer url={tilesUrl} />
+      {place ? <Marker position={[place.latitude, place.longitude]} /> : null}
+    </MapContainer>
+  );
 };
 
 export default Map;
